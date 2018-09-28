@@ -1,0 +1,25 @@
+
+a = 10 
+b = 0
+c = 30 
+
+def foo1 (a,b):
+	global b
+	b = 20
+	return b
+	a = b + c
+	print(a)
+	
+
+def foo2(b,c):
+	b = a + c 
+	print(b)
+
+def foo3(a,c):
+	c = a + b
+	print(c)
+
+# print(foo1(3,4))
+# print(foo2(5,6))
+# print(foo3(7,8))
+print(foo1((foo2(1,2),(foo3(3,4)))))
