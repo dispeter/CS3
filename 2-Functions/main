@@ -10,8 +10,4 @@ def hello(a):
 
 hello("GG")
 
-# from math import sqrt
-def sqrt(a):
-	print(math.sqrt(a))
-sqrt(4)
 
