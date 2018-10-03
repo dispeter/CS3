@@ -47,7 +47,7 @@ def triple(num):
 	return add(num + add(num, num))
 
 def quadruple(num):
-	return add(num + triple(num))
+	return add(num, triple(num))
 #Question 4 - 7
 #On different file 
 
@@ -71,3 +71,5 @@ print(math.pi)
 print(float(math.e))
 
 #Question 10
+from math import sqrt
+print(sqrt(16))
