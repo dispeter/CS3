@@ -1,25 +1,73 @@
+#Question 1 
+# a = 10 
+# b = 20
+# c = 30 
 
-a = 10 
-b = 0
-c = 30 
+# def foo1 (a,b):
+# 	global b
+# 	a = b + c
+# 	print(a)
 
-def foo1 (a,b):
-	global b
-	b = 20
-	return b
-	a = b + c
-	print(a)
 	
 
-def foo2(b,c):
-	b = a + c 
-	print(b)
+# def foo2(b,c):
+# 	b = a + c 
+# 	print(b)
 
-def foo3(a,c):
-	c = a + b
-	print(c)
+# def foo3(a,c):
+# 	c = a + b
+# 	print(c)
 
 # print(foo1(3,4))
 # print(foo2(5,6))
 # print(foo3(7,8))
-print(foo1((foo2(1,2),(foo3(3,4)))))
+# print(foo1((foo2(1,2),(foo3(3,4)))))
+
+# Question 1 Answer 34
+# Question 2 Answer 16
+# Question 3 Answer 27
+# Question 4 Answer No solution
+
+#Question 2 
+# a = 10 
+# b = 20
+# c = 30
+
+# def foo1(a):
+# 	a = b + c
+# 	print(a)
+
+# foo1(2)
+
+#Question 3
+def add(num1, num2):
+	return num1 + num2
+
+def triple(num):
+	return add(num + add(num, num))
+
+def quadruple(num):
+	return add(num + triple(num))
+#Question 4 - 7
+#On different file 
+
+#Question 8
+#It depends on the order on where you place which first so if the main funtion is called last
+#then the function is going to print("NUUUUU")
+
+
+#Question 9
+import math
+# from math import exp
+# from math import log2(x)
+# from math import cos
+# from math import pi
+# from math import e
+
+print(int(math.exp(2)))
+print(int(math.log2(8)))
+print(int(math.cos(90)))
+print(math.pi)
+print(float(math.e))
+
+#Question 10

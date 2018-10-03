@@ -1,0 +1,17 @@
+import module1 
+from module1 import hello 
+print(module1.var1)
+
+from module1 import hello
+def hello(a):
+	print("NUUUUUu")
+#module1.hello("lol")
+
+
+hello("GG")
+
+# from math import sqrt
+def sqrt(a):
+	print(math.sqrt(a))
+sqrt(4)
+
