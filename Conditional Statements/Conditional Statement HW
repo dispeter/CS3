@@ -1,0 +1,101 @@
+import math 
+import random
+# Question 1 
+
+age = 3
+if age>19:
+	print(True)
+
+else:
+	print(False)
+
+
+# Question 2
+
+length1 = 5
+length2 = 6
+length3 = 7
+if (math.pow(length1,2)+math.pow(length2,2)) > math.pow(length3,2):
+	print("Acute")
+elif (math.pow(length1,2)+math.pow(length2,2)) < math.pow(length3,2):
+	print("Obtuse")
+elif (math.pow(length1,2)+math.pow(length2,2)) == math.pow(length3,2):
+	print("Right")
+else:
+	print("NO")
+
+#Question 3 
+
+integer = 30
+if integer % 5 ==0 and integer % 3==0:
+	print("FIZZ BUZZ")
+elif integer % 3==0 :
+	print("FIZZ!")
+elif integer % 5 ==0:
+	print("BUZZ")
+else:
+	print("wtf?")
+
+# Question 4
+
+combnumber1 = 100
+combnumber2 = 1
+combination_formula = int((math.factorial(combnumber1)/((math.factorial(combnumber2)*math.factorial(combnumber1-combnumber2)))))
+if combination_formula > math.pow(10,6):
+	print("coward")
+elif combination_formula > 10000 and combination_formula < 1000000:
+	print("slight chance hope you lose")
+elif combination_formula < 1000:
+	print("mayb")
+
+# Question 5 
+
+random_number = 0
+random_number = random.randint(1,100)
+
+if random_number > 1 and random_number < 10:
+	print("*Inserts bad motivational Quote")
+elif random_number > 10 and random_number < 20:
+	print("Why are you born")
+elif random_number > 20 and random_number < 30:
+	print("Shock me say somthing intelligent")
+elif random_number > 30 and random_number < 40:
+	print("Im sorry I call you a retard, I thought u already knew")
+elif random_number > 40 and random_number < 50:
+	print("You want to know about mistakes? Ask your parents")
+elif random_number > 50 and random_number < 60:
+	print("I would slap you but that would be animal abuse")
+elif random_number > 60 and random_number < 70:
+	print("Zombies are looking for brains dont worry ur safe")
+elif random_number > 70 and random_number < 80:
+	print("Can evolution go backwards? I dont know man look at yourself")
+elif random_number > 80 and random_number < 90:
+	print("All the family branches fell off your family tree when you were born")
+elif random_number > 90 and random_number < 100:
+	print("Congrats you are the 1%!!!!")
+
+# Question 6
+count = 0
+
+dice1 = random.randint(1,6)
+dice2 = random.randint(1,6)
+dice3 = random.randint(1,6)
+
+guess1 = 0
+guess2 = 0
+guess3 = 0
+def dice_guess(guess1,guess2,guess3):
+	global count
+	if dice1 == guess1:
+		count+=1
+	if dice2 == guess2:
+		count+=1
+	if dice3 == guess3:
+		count+=1
+	print(count)
+
+
+dice_guess(2,2,2)
+
+
+

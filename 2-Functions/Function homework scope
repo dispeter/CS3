@@ -34,6 +34,7 @@
 # c = 30
 
 # def foo1(a):
+
 # 	a = b + c
 # 	print(a)
 
