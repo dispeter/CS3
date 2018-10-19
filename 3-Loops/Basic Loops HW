@@ -64,8 +64,7 @@ def dice_roll(times):
 	print("The dice roll 6 : " , sixcount , "time(s)")	
 
 
-dice_roll(100)
-
+dice_roll(10)
 
 
 # Question 4

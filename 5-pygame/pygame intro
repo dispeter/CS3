@@ -1,0 +1,42 @@
+# import pygame
+
+# screen = pygame.display.set_mode((1080, 960))
+
+# running = True
+# while running:
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             running = False
+#     pygame.draw.rect(screen, (0, 128, 128), ((50, 50), (100, 100)))
+#     pygame.display.update()
+# pygame.quit()
+
+
+import pygame
+
+screen = pygame.display.set_mode((640, 480))
+clock = pygame.time.Clock()
+running = True
+
+x = 50
+x_velocity = 2
+y = 250
+y_velocity = 2
+
+while running:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    screen.fill((0, 0, 0))
+    pygame.draw.rect(screen, (0, 150, 150), ((int(x), int(y)), (50,50)))
+    pygame.display.flip()
+    clock.tick(60)
+    x = x + x_velocity
+    y = y + y_velocity
+    if x > 590 or x < 0:
+        x_velocity = -x_velocity
+    if y > 430 or y < 0:
+        y_velocity = -y_velocity
+    pygame.display.update()
+pygame.quit()

@@ -1,1 +1,4 @@
 print(
+
+while True: 
+	print(":)")

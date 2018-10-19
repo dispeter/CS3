@@ -1,0 +1,74 @@
+import pygame
+
+
+#Question 1
+
+#Part 1
+
+# print("Hello")
+# print("Goodbye")
+
+# print("Hello", end=" ")
+# print("Goodbye")
+
+#Part 2
+
+#
+# for a in range(0,5):
+#   print("")
+#   for b in range(0,10):
+#       print("*", end="")
+
+# #Question 2
+# x = 9
+# z = 0
+# for c in range(0,5):
+#   for d in range(0,x):
+#       print(" ",end=" ")
+#   x=x-1
+#   for e in range(0,z+1):
+#       print("*", end = " ")
+#   z+=2
+#   print("\n")
+
+# #Question 3 
+#Jeremy Wong taught me the concept of this question
+# length = 9
+# for x in range(0,length):
+#    for y in range (0,length):
+#        if x==0 or x==length-1:
+#            print("*",end="")
+#        elif y==0 or y==length-1:
+#            print("*",end="")
+#        elif x==y:
+#             print("*", end="") 
+#        elif x==(y*-1)+length-1:
+#             print("*", end="") 
+#        else:
+#            print(" ",end="")
+#    print()
+
+#Question 4
+
+x = 0
+y = 0
+screen = pygame.display.set_mode((500, 500))
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    #screen.fill((23,100,255))
+    for x in range(0,600,100):
+        if x==200 or x==400 or x==0:
+            pygame.draw.rect(screen, (255, 255, 255), ((x,y), (100 , 100)))
+    for y in range(0,600,100):
+        if y==200 or y==400 or y==0:
+            pygame.draw.rect(screen, (255, 255, 255), ((0,y), (100 , 100)))
+            print()
+    
+    pygame.display.update()
+pygame.quit()
+
+
