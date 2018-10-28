@@ -1,0 +1,47 @@
+import pygame
+import time
+import random
+# #Question 1
+
+# screen = pygame.display.set_mode((700, 700))
+# green = 0
+# color = 0
+# running = True
+# while running:
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             running = False
+    
+#         if color<=255:
+#             pygame.draw.circle(screen, (0 , color , 0), (350,350), 100 , 0)
+#         elif color<=510:
+#             pygame.draw.circle(screen, (0 , 510-color , 0), (350,350), 100 , 0)
+#         else:
+#             pygame.draw.circle(screen, (0 , 0 , 0), (350,350), 100 , 0)
+#         color+=2
+#         time.sleep(0.3)
+#     pygame.display.update()
+# pygame.quit()
+
+#Question 2 
+
+screen = pygame.display.set_mode((600, 600))
+x = 0
+r = 50
+r_diff = random.randint(1,9)
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    for i in range(0,5):
+        pygame.draw.circle(screen, (255 , 0 , 0), (x+100,300), r , 0)
+        x+=100
+        r-=r_diff
+        time.sleep(0.3)
+        pygame.display.update()
+    input()
+pygame.quit()
+
+
+

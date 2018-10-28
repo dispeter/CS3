@@ -1,40 +1,69 @@
+#Import Files
 import pygame
 import random
 import time
-print("Pygame Color Changing Pyrimid")
-screen = pygame.display.set_mode((550,500))
-r=0
-g=0
-b=0
-color=[r,g,b]
-y=80
+
+#Parts
+#moveX=[300]
+#moveY=[300]
+steps=0
+collision=False
+enddraw=False
 running=True
-drawn=False
+failed=False
+screen = pygame.display.set_mode((600,600))
 screen.fill((255,255,255))
+objxy=[300,300]
+complete_obstruction=0
+#newobjxy=[1,0]
+
+def obj():
+    pygame.draw.rect(screen, (0,0,0), (objxy, (1, 1)))
+def move():
+    global direct, collision, failed, complete_obstruction
+    runtime=0
+    while runtime!=steps and failed!=True:
+        if direct==1 and screen.get_at((objxy[0]+1, objxy[1])) != (0,0,0):
+            objxy[0]+=1
+        elif direct==2 and screen.get_at((objxy[0], objxy[1]+1)) != (0,0,0):
+            objxy[1]+=1
+        elif direct==3 and screen.get_at((objxy[0]-1, objxy[1])) != (0,0,0):
+            objxy[0]=objxy[0]-1
+        elif direct==4 and screen.get_at((objxy[0], objxy[1]-1)) != (0,0,0):
+            objxy[1]=objxy[1]-1
+        else:
+            complete_obstruction+=1
+            failed=True
+        runtime+=1
+        print(objxy[0:])
+        obj()
+        pygame.display.update()
+def direction():
+    global failed, direct, complete_obstruction
+    if failed==False:
+        complete_obstruction=0
+        direct=random.randint(1,4)
+    elif failed==True:
+        if direct==4:
+            direct=1
+        else:
+            direct+=1
+        failed=False
+#Basic Code
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        #if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
-    if drawn==True:
-        y=80
-        for f in range(0,3):
-            n=random.randint(0,255)
-            color[f]=n
-        time.sleep(0.00000001)
-        drawn=False
-    while drawn==False:
-        for i in range(0,6):
-            x=0
-            for j in range(6-i):
-                x+=50
-            for j in range(1,i):
-                pygame.draw.rect(screen, color[0:], ((x, y), (50, 50)))
-                x+=50
-            for i in range(i, 0, -1):
-                pygame.draw.rect(screen, color[0:], ((x, y), (50, 50)))
-                x+=50
-            y+=50
-        drawn=True
-    pygame.display.update()
+#Main Code
+    while enddraw!=True:
+        direction()
+        steps=random.randint(10,50)
+        time.sleep(0.1)
+        move()
+        if complete_obstruction==5:
+            enddraw=True
+            print("Drawing Complete")
+        elif objxy[0]<=0 or objxy[0]>=600 or objxy[1]<=0 or objxy[1]>=600:
+            enddraw=True
+            print("Drawing Complete")
 pygame.quit()
