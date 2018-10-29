@@ -1,47 +1,67 @@
 import pygame
 import time
 import random
-# #Question 1
 
-# screen = pygame.display.set_mode((700, 700))
-# green = 0
-# color = 0
-# running = True
-# while running:
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             running = False
-    
-#         if color<=255:
-#             pygame.draw.circle(screen, (0 , color , 0), (350,350), 100 , 0)
-#         elif color<=510:
-#             pygame.draw.circle(screen, (0 , 510-color , 0), (350,350), 100 , 0)
-#         else:
-#             pygame.draw.circle(screen, (0 , 0 , 0), (350,350), 100 , 0)
-#         color+=2
-#         time.sleep(0.3)
-#     pygame.display.update()
-# pygame.quit()
+snake_xy = [300, 300]
+white = 255
+failure = False
+blue = 255
+length = 0
+screen = pygame.display.set_mode((620, 620))
+screen.fill((0, 0, 0))
 
-#Question 2 
+white= (0,0,0)
 
-screen = pygame.display.set_mode((600, 600))
-x = 0
-r = 50
-r_diff = random.randint(1,9)
+def where():
+    global random_pixel, random_direction
+    random_pixel = random.randint(1, 6) * 10 
+    random_direction = random.randint(1, 4)
+    length = 0
+    failure = False
+
+    while length != random_pixel and failure == False:
+        if screen.get_at((snake_xy[0]+10 , snake_xy[1])) == (0, 0, blue) and screen.get_at((snake_xy[0]-10,snake_xy[1])) ==(0, 0, blue) and screen.get_at((snake_xy[0], snake_xy[1]+10)) ==(0, 0, blue) and screen.get_at((snake_xy[0],snake_xy[1]-10)) ==(0, 0, blue):
+            # print(snake_xy[0:])
+
+            failure == True
+            break
+        elif screen.get_at((snake_xy[0],snake_xy[1]-10)) != (0, 0, blue) and random_direction == 1:  # up
+            snake_xy[1] -= 10
+        elif screen.get_at((snake_xy[0], snake_xy[1]+10)) != (0, 0, blue) and random_direction == 2:  # down
+            snake_xy[1] += 10
+        elif screen.get_at((snake_xy[0]-10,snake_xy[1])) != (0, 0, blue) and random_direction == 3:  # left
+            snake_xy[0] -= 10
+        elif screen.get_at((snake_xy[0]+10 , snake_xy[1])) != (0, 0, blue) and random_direction == 4:  # Right
+            snake_xy[0] += 10
+        else:
+            failure == True
+            break
+        length += 10 
+        pygame.draw.rect(screen, (0,0,255), (snake_xy, (10, 10)))
+        print(snake_xy)
+        time.sleep(0.01)
+        pygame.display.update()
+
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    for i in range(0,5):
-        pygame.draw.circle(screen, (255 , 0 , 0), (x+100,300), r , 0)
-        x+=100
-        r-=r_diff
-        time.sleep(0.3)
-        pygame.display.update()
-    input()
+    pygame.draw.rect(screen, (0, 0, blue), ((0, 0), (0, 610)))
+    pygame.draw.rect(screen, (0, 0, blue), ((0, 0), (610, 0)))
+    pygame.draw.rect(screen, (0, 0, blue), ((610, 0), (0, 610)))
+    pygame.draw.rect(screen, (0, 0, blue), ((0, 610), (610, 0)))
+    pygame.display.update()
+
+    for i in range(1,random.randint(1,10)):
+        where()
+        
+
 pygame.quit()
+
+
+
+
 
 
 
