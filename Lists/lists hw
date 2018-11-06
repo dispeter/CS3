@@ -1,0 +1,167 @@
+import random
+import math 
+
+#Question 1 
+example = [1,2,3]
+def foo1(list1):
+    for i in range(len(list1)):
+        if list1[0] or list1[-1] == 6:
+            print("True")
+        else:
+            print("False")
+
+
+
+# foo1(example)
+
+#Question 2 
+example_2 = [1,2,3]
+def foo2(list2):
+    list2.reverse()
+    print(list2)
+
+# foo2(example_2)
+
+
+#Question 3 
+example_3 = []
+example_3_new = []
+def foo3(list3):
+    example_3_new.append(list3[0])
+    example_3_new.append(list3[-1])
+    print(example_3_new)
+
+example_3 = [1,2,3,5]
+# foo3(example_3)
+
+#Question 4
+def foo4(list4):
+    for i in range(len(list4)):
+        if list4[i]==2 or list4[i]==3:
+            print("True")
+examaple_4 = [4,5,10,15,16,0,4]
+# foo4(examaple_4)
+
+
+#Question 5
+
+def foo5(list5):
+    even_number = 0
+    for i in range(len(list5)):
+        if list5[i] % 2 == 0:
+            even_number+=1
+    print(even_number)
+example_5 = [2,1,2,3,4]
+# foo5(example_5)
+
+#Question 6
+example_6 = [1,1,13,4,5]
+def foo6(list6):
+    total = 0
+    for i in range(len(list6)):
+        # if list6[i]==13 and list6[i+1]==13:
+        if list6[i]==13 :
+            continue
+        if list6[i-1]==13:
+            continue 
+        total+=list6[i]
+    print(total)
+# foo6(example_6)
+
+#Question 7 
+example_7 = [1,2,3,4,100]
+def foo7(list7):
+    # global highest,lowest,total
+    total = 0
+    highest = 0
+    lowest = 100000
+    for i in range(len(list7)):
+        if list7[i] > highest:
+            highest=list7[i]
+    for x in range(len(list7)):
+        if list7[x] < lowest:
+            lowest=list7[x]
+    for y in range(len(list7)):
+        total+=list7[y]
+    print(highest)
+    print(lowest)
+    total=total-highest
+    total=total-lowest
+    total=int(total/(len(list7)-2))
+    print(total)
+# foo7(example_7)
+
+#Question 8
+example_8 = [7,4,5,5,4,7]
+def foo8(list8):
+    # for i in range(0,len(list8)):
+    if list8 ==list8[::-1]:
+        print("True")
+
+# foo8(example_8)
+
+
+#Question 9
+example_9 = ["ok","oK","Ok","bello", "Bello"]
+
+def foo9(list9):
+    new_list9 = []
+    for i in list9:
+        new_list9+=[i.lower()]
+    print(set(new_list9))
+# foo9(example_9)
+
+
+#Question 10 
+times = 2
+example_10 = []
+def randomcords(list10):
+    for i in range(times):
+        x_cord = random.randint(-100,100)
+        y_cord = random.randint(-100,100)
+        z_cord = random.randint(-100,100)
+        list10+=[(x_cord,y_cord,z_cord)]
+    print(list10)
+    return list10
+
+
+def distance_cords(list10):
+    distance_list = []
+    for x in range(len(list10)):
+        for y in range(len(list10)):
+            # distance = math.pow(math.pow(math.pow((math.pow(example_10[x][0]-example_10[y][0]),2) + (math.pow(example_10[x][1]-example_10[y][1]),2)),2),0.5)
+            distance = math.pow((math.pow(list10[x][0]-list10[y][0],2) + (math.pow(list10[x][1]-list10[y][1],2))),0.5)
+            if distance!=0:
+                distance_list+=[distance]
+    return sorted(distance_list)[0]
+
+
+
+# randomcords(example_10)
+# print(distance_cords(example_10))
+ 
+
+
+#Question 11
+more_than_20 = []
+randomnumber = 0
+example_11 = []
+
+
+for i in range(100):
+    randomnumber = random.randint(0,1000)
+    example_11.append(randomnumber)
+print(example_11)
+# example_11.sort()
+def foo11(list11):
+    for i in range(0,len(list11)):
+        if (i-1)!=1 and (i+1)<len(list11):
+            if (list11[i+1]-list11[i]) >= 20 and (list11[i]-list11[i-1]) >= 20:
+                more_than_20.append(list11[i])
+# print(random_number(example_11))
+foo11(example_11)
+print(more_than_20)
+
+
+
+

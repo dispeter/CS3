@@ -1,0 +1,56 @@
+import random 
+
+#Question 1
+
+d = {}
+
+for i in range(10):
+    d[i] = 0
+
+for i in range(10000):
+    d[random.randint(0,9)] += 1
+
+
+# for i in range(10):
+#     print("Num" , i , ":" , d[i] )
+
+
+#Question two 
+p = {}
+
+for i in range(10):
+    p[i] = []
+
+for i in range(3):
+    n = random.random() * 10 
+    #random.random print a random number from 0 to 1 
+    p[int(n)].append(n)
+
+
+for i in range(0,10):
+    print("Num" , i , ":" , p[i])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

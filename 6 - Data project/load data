@@ -1,0 +1,70 @@
+import codecs 
+
+with codecs.open("load_movies.txt" , "r", encoding="utf-8") as f:
+    line = f.readline()
+    attributes = line.strip().split(";")
+
+    f.readline()
+    movie_data = []
+    for line in f.readlines():
+        line = line.replace("\t" , " ")
+        line = line.strip().split(";")
+        movie_data.append(tuple(line))
+        
+# print(len(movie_data))
+by_year = {}
+by_actor = {}
+by_female = {}
+by_director = {}
+by_length = {}
+with codecs.open("load_movies.tsv" , "w" , encoding="utf-8") as f:
+    for movie in movie_data:
+        for item in movie:
+            item = item.replace("\t" , "  ")
+            f.write(item + "\t")
+        f.write("\n")
+# movie_data = get_movie_data()
+# create_tsv(movie_data)
+
+ # year, length, title ,subject,actor,actress,director,popularity,awards,image 
+
+#By Year
+for x in range(len(movie_data)):
+    year = movie_data[x][0]
+    by_year[year] = []
+for i in range(len(movie_data)):
+    by_year[movie_data[i][0]].append(movie_data[i])
+
+#By length 
+for x in range(len(movie_data)):
+    length = movie_data[x][1]
+    by_length[length] = []
+for i in range(len(movie_data)):
+    by_length[movie_data[i][1]].append(movie_data[i])
+
+
+# #By Actor
+for x in range(len(movie_data)):
+    actor = movie_data[x][4]
+    by_actor[actor] = []
+for i in range(len(movie_data)):
+    by_actor[movie_data[i][4]].append(movie_data[i])
+
+
+#By Female 
+for x in range(len(movie_data)):
+    female = movie_data[x][5]
+    by_female[female] = []
+for i in range(len(movie_data)):
+    by_female[movie_data[i][5]].append(movie_data[i])
+
+
+# #By director 
+for x in range(len(movie_data)):
+    director = movie_data[i][6]
+    by_director[director] = []
+for i in range(len(movie_data)):
+    by_director[movie_data[i][6]].append(movie_data[i])
+
+
+print(by_year["1991"])
