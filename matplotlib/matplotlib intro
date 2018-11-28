@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt 
+from random import randint
+
+#dots graph
+# pit.plot([1,2,4,5],[1,2,3,2], "g^-")
+# plt.show()
+
+#histogram
+# x= [randint(0,20) for i in range(1000)]
+
+# plt.hist(x, 20, facecolor="r")
+# plt.show()
+
+
+
