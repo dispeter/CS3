@@ -1,0 +1,13 @@
+listnumber = [1,-3,5,7,15,-4,-6,-10,-11,12]
+
+def random(listss):
+    for i in range(0,len(listss)):
+        for i in range(0,len(listss)):
+            var1 = listss[i]
+            if listss[i] % 2 == 0:
+                listss.pop(i)
+                listss.append(var1)
+    print(listss)
+    return listss
+
+random(listnumber)

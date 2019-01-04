@@ -1,0 +1,131 @@
+###
+
+#1a
+number = 15
+number_even = 15-1
+output number_even/2 , 15%2
+
+
+#1b
+number = 15
+mod_value = 0
+loop while number>=1
+    mod_value=number%2
+    output mod_value
+    number = (number-mod_value)/2
+end loop
+
+#1c
+number = 15
+binary_list = [0,0,0,0,0,0,0,0,0]
+loop i from 1 to 8
+      mod_value=number%2
+      number = (number-mod_value)/2
+      binary_list[i]=mod_value
+end loop
+
+output binary_list
+
+#question 2 
+#2a
+num = 10
+repeat until num!=1
+  if num mod 2 =0
+    num = num/2
+  else
+    num=num*3+1
+  endif
+output num
+
+#2b
+nosequence = new collection()
+
+num = 10
+repeat until num!=1
+  if num mod 2 =0
+    num = num/2
+  else
+    num=num*3+1
+  endif
+  nosequence.addItem(num)
+output num
+end while
+nosequence.resetNext()
+loop while nosequence.hasNext()
+     output nosequence.getNext()
+end while 
+
+#2c
+multiplefive= new Array()
+counter = 0 
+num = 10
+repeat until num!=1
+  if num mod 2 =0
+    num = num/2
+  else
+    num=num*3+1
+  endif
+  if num mod 5 = 0 then
+    multiplefive[N] = num
+  else
+    multiplefive[N] = 0
+  end if 
+  counter = counter + 1 
+output num
+end while
+loop i from 2 to 100
+   if multiplefive[i] = 0 then
+      output N
+   end if
+end loop
+end while 
+
+
+#Q3
+column=5
+column2= -5
+row = column-1
+row2 = column2 + 1
+counter=1
+number = 0
+map = []
+total_numbers = column * column
+x = 0
+y = 0
+loop x from 0 to column
+  map.append([])
+  loop y from 0 to column
+    map[x].append(0)
+  end loop
+end loop
+
+loop while counter<grid:
+  loop while x > row:
+    map[y][x] = number
+    number+=1
+    x+=1
+  end while
+  loop while x==row and y > row:
+    map[y][x]=number
+    y+=1
+  loop while y > row2 and x == row2:
+    map[y][x]=number
+    y-=1
+    number+=1
+ 
+ 
+#Q4 
+#F)
+duration = 0
+money = 0 
+consecutive_days = 0
+rules = [[0.5,5],[3,15],[0,30]]
+if duration <= 30: 
+    money+=rules[0][1]
+elif duration > 30 and duration <= 120:
+    money+=(rules[1][0]+rules[1][0])
+elif duration > 120 and duration < 4*60:
+    money+=rules[1][1]
+elif duration > consecutive_days*24*60:
+    money+=rules[2][1]*consecutive_days
+
