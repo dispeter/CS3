@@ -4,8 +4,8 @@ import math
 S = 0.999
 I = 0.001
 R = 0
-beta = 0.3
-gamma = 0.01
+beta = 0.2
+gamma = 0.0005
 graph_susceptible = []
 graph_infected = []
 graph_recovered = []

@@ -1,0 +1,74 @@
+import pygame
+from random import randint
+from gridworld import GridWorld
+import time
+setup=False
+done = False
+death = 0.5
+days = 200
+infectpercent = 0
+
+simulation = GridWorld(60, 40, 10)
+# suspectible_color = (0, 0, 255)#blue
+# infected_color = (255, 0, 0)#red
+# recovered_color = (0, 255, 0)#green
+# dead = (128,0,128)#purple
+sird = [(255, 0, 0),(0, 255, 0),(0, 0, 255),(255,255,255)]
+def threesquares(cell , infectpercent):
+    position = simulation.get_surroundings(cell[0],cell[1],3)
+    for x in range(len(position)):
+        for y in range(len(position)):
+            if x==0 or x==len(position)-1 or y==0 or y==len(position)-1:
+                if position[x][y]== sird[0]:
+                    infectpercent+=2
+            elif x==1 or x==len(position)-2 or y==1 or y==len(position)-2:
+                if position[x][y]== sird[0]:
+                    infectpercent+=5
+            elif x==2 or x==len(position)-2 or y==2 or y==len(position)-2:
+                if position[x][y]== sird[0]:
+                    infectpercent+=25
+    if infectpercent >=97:
+        infectpercent = 97
+    print(infectpercent)
+    infectpercent = int(infectpercent)
+    return infectpercent
+
+def infectedrate(cell, infectpercent):
+    if int(randint(0,100)) <= infectpercent:
+        simulation.set_cell(cell[0], cell[1], sird[2])
+
+def deathpercent(cell,death):
+    if randint(0,100) <= 0.5:
+        simulation.set_cell(cell[0],cell[1],sird[3])
+    else:
+        return False
+
+while not done:
+    done = simulation.process_events()
+    if setup==False:
+        for i in range(0, 500):
+            simulation.set_cell(randint(0, 60), randint(0,40), sird[randint(0,1)])
+        setup=True
+    if days!=0:
+        for cell in simulation.cells:
+            infectpercent = 0
+            position_color = simulation.get_cell(cell[0],cell[1])
+            if position_color ==sird[1]:
+                infectpercent = threesquares(cell,infectpercent)
+                print(infectpercent)
+                # time.sleep(0.2)
+                infectedrate(cell ,infectpercent)
+        time.sleep(1)
+        days-=1
+    elif days==0:
+        for cell in simulation.cells:
+            position_color = simulation.get_cell(cell[0],cell[1])
+            if position_color == sird[2]:
+                dead = deathpercent(cell , death)
+        time.sleep(10)
+        break
+    simulation.update()
+    
+    
+
+simulation.end()
