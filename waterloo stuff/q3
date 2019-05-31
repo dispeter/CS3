@@ -1,0 +1,21 @@
+with open ("tempinit") as f:
+    l=f.readlines()
+length =[]
+lines= []
+num_of_lines = l[0].strip(",")#input()
+
+for i in range(1,int(num_of_lines)+1):
+    line = l[i].split(",")#input.split(" ")
+    line = l[i].strip()
+    # lines.append([line[0],line[1].strip()]) 
+    lines.append(line)
+print(lines)
+for i in range(0,len(lines)):
+    length.append(len(lines[i]))
+print(length)
+for i in range(0,len(length)):
+    for x in range(0,len(length)):
+        for y in range(0,len(length)):
+            if lines[x][y] != lines[x][y+1]:
+                line[x][y].split()
+print(lines)

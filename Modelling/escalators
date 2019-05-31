@@ -1,0 +1,56 @@
+import matplotlib.pyplot as plt
+
+
+#Variables
+ratio=30
+entrytimestanding=3
+entrytimewalking=1 #every second you can enter the escalator
+
+x=[]
+y=[]
+
+def escalator(totalpeople,y):
+    ratio = 30
+    entrytimestanding = 3
+    entrytimewalking = 1
+    people = totalpeople
+    walkup = entrytimewalking * ratio  # gives time to walk to the top
+    liftup = entrytimestanding * ratio  # gives time to be lift to the top
+    walk = 0
+    lift = 0
+    time = 0
+    currenttime = liftup
+
+    while currenttime > 1:
+        if time % entrytimewalking == 0 and people > 0:
+            people -= 1
+            walk += 1
+
+        if time % entrytimestanding == 0 and people > 0:
+            people -= 1
+            lift += 1
+            currenttime = liftup
+
+        time += 1
+        currenttime -= 1
+
+    print('There are',totalpeople,'people in total')
+    print(time, 'seconds')
+    print(time - liftup, 'seconds without', liftup)
+    print(walk, 'walked', lift, 'lifted\n\n')
+    y.append(time)
+
+    return y
+
+
+for i in range(10):
+    escalator((i+1)*50,y)
+    x.append((i+1)*50)
+
+
+plt.figure()
+plt.plot(x,y)
+plt.xlabel("Seconds")
+plt.ylabel("Total people")
+plt.title("People going up escalator overtime")
+plt.show()

@@ -1,0 +1,44 @@
+grid = [1,2,4,3]
+choice = "HV"
+
+choices = []
+
+ 
+num1 = 0
+num2 = 0
+num3 = 0
+num4 = 0
+
+# if choice == "H":
+#     num = grid.pop(2)
+#     grid.append(num)
+#     num = grid.pop(0)
+#     grid.append(num)
+#     num = grid.pop(0)
+#     grid.append(num)
+#     num = grid.pop(0)
+#     grid.append(num)
+#     num = grid.pop(1)
+#     grid.append(num)
+for i in range(len(choice)):
+    if choices[i] == "H":
+        num1 = grid.pop(0)
+        num2 = grid.pop(0)
+        num3 = grid.pop(0)
+        num4 = grid.pop(0)
+        grid.append(num3)
+        grid.append(num2)
+        grid.append(num4)
+        grid.append(num1)
+
+    elif choices[i] == "V":
+        num1 = grid.pop(0)
+        num2 = grid.pop(0)
+        num3 = grid.pop(0)
+        num4 = grid.pop(0)
+        grid.append(num2)
+        grid.append(num1)
+        grid.append(num4)
+        grid.append(num3)
+    
+print(grid)

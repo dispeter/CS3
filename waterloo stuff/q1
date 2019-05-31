@@ -1,0 +1,29 @@
+# lst = [7,3,0,6,4,1]
+scoreA = []
+scoreB = []
+totalA= 0
+totalB=0
+
+for i in range(0,6):
+    if i >=0 and i < 3:
+        scoreA.append(int(input()))
+    if i >=3:
+        scoreB.append(int(input()))
+    
+
+
+# for i in range(0,5):
+totalA +=scoreA[0]*3
+totalA += scoreA[1]*2
+totalA += scoreA[2]*1
+
+totalB +=scoreB[0]*3
+totalB += scoreB[1]*2
+totalB +=scoreB[2]*1
+
+if totalA> totalB:
+    print("A")
+elif totalB> totalA:
+    print("B")
+elif totalB==totalA:
+    print("T")

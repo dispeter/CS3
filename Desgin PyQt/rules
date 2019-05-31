@@ -1,0 +1,15 @@
+grid = []
+
+for i in range(5):
+    grid.append([0]*5)
+
+for i in range(5):
+    print(grid[i])
+
+for i in range(len(grid[1])):
+    if grid[i] = grid[i+1]
+
+
+
+
+

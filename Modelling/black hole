@@ -1,0 +1,59 @@
+from random import randint
+
+PLYR = 1
+GOAL = 2
+HOLE = 3
+
+def generate_world():
+    world = [[PLYR, 0, 0, 0],
+             [0, 0, 0, 0],
+             [0, 0, 0, 0],
+             [0, 0, 0, GOAL]]
+
+    hole_count = 0
+    while hole_count < 3:
+        x = randint(0, 3)
+        y = randint(0, 3)
+        if world[x][y] not in [PLYR, GOAL, HOLE]:
+            world[x][y] = HOLE
+            hole_count += 1
+    return world
+
+def is_valid_move(player_x, player_y):
+    if player_x >= 0 and player_x <= 3 and player_y >= 0 and player_y <= 3:
+        return True
+    return False
+
+def get_next_move(player_x, player_y, world):
+    while True:
+        move_x, move_y = moves[randint(0, 3)]
+        player_x += move_x
+        player_y += move_y
+        if is_valid_move(player_x, player_y):
+            return player_x, player_y
+        player_x -= move_x
+        player_y -= move_y
+
+total = 0
+trial_runs = 10000
+for i in range(0, trial_runs):
+
+    dead = False
+    player_x = player_y = 0
+    money = -10
+    world = generate_world()
+
+    moves = [(-1, 0), (1, 0), (0, 1), (0, -1)]
+    while not dead:
+        player_x, player_y = get_next_move(player_x, player_y, world)
+        if world[player_x][player_y] == HOLE:
+            dead = True
+        elif world[player_x][player_y] == GOAL:
+            money += 1
+            money += 25
+            break
+        else:
+            money += 1
+    total += money
+
+print(total / trial_runs)

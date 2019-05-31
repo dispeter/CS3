@@ -1,0 +1,33 @@
+import copy
+global_list = []
+# list2 = [[0,0,0],[0,0,0],[0,0,0]]
+list2 = [[0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+def zero_locations(lst):
+    zero_coords = []
+    for x in range(len(lst)):
+        for y in range(len(lst)):
+            if lst[x][y]==0:
+                zero_coords.append((x,y))
+    return zero_coords
+
+def grid(list2,count):
+    global global_list
+    if count == 0:
+        # global_list.append(list2)
+        return 
+    zeros = zero_locations(list2)
+    # print(zeros)
+    # return
+    for i in range(len(zeros)):
+        x,y = zeros[i]
+        list2[x][y]= 1
+        list_copy = copy.deepcopy(list2)
+        grid(list_copy, count-1)
+        list2[x][y] = 0
+            
+    return list2
+
+print(grid(list2,4))
+# zero_locations(list2)
+print(global_list)
+print(len(global_list))
